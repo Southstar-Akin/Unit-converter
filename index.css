@@ -1,0 +1,177 @@
+@font-face {
+  font-family: fig;
+  src: url('Figtree-Regular.ttf');
+}
+*{
+font-family: fig;
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+/* Landing page design start */
+div#layout{
+  display: grid;
+  place-content: center;
+  background-color: rgb(21, 20, 21);
+  height: 100vh;
+  width: 100vw;
+  place-content: center;
+}
+div#in-layout{
+  display: grid;
+  /* place-content: center; */
+  background-color: #1F2937;
+  height: 481px;
+  width: 597px;
+  padding: 0;
+}
+div.container{
+  display: grid;
+  place-content: center;
+  height: inherit;
+  width: inherit;
+}
+div.convert{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  place-content: center;
+  height: inherit;
+  width: inherit;
+}
+span.head{
+  display: grid;
+  place-content: center;
+  font-size: 2em;
+  font-weight: 900;
+  color: white;
+  grid-area: 1/1/2/-1;
+  background-color: #6943FF;
+  height: 100%;
+  width: 100%;
+}
+div.convert button{
+  display: grid;
+  width: 200px;
+  height: 50px;
+  place-self: center;
+  align-self:start ;
+  place-content: center;
+  border-radius: 28px;
+  position: relative;
+  top: 50px;
+  border: none;
+  padding: 0;
+  background-color:#6943FF;
+}
+div.convert button a.but{
+  margin: 0;
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;
+  width: inherit;
+  height: inherit;
+  padding: 0;
+  display: grid;
+  place-content: center;
+  border-radius: 28px;
+  transition: all 0.3s ease-in;
+}
+div.convert button a.but:hover{
+  color: #6943FF;
+  background-color:#dbdbdf ;
+}
+/* Landing page end */
+/* Convert page start */
+div.container2{
+  display: grid;
+  height: inherit;
+  width: inherit;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4.5fr 6.5fr;
+}
+div.header{
+  display: grid;
+  grid-area: 1/1/2/-1;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  place-items: center;
+  background-color: #6943FF;
+  padding: 0;
+}
+span.top{
+  color: white;
+  font-weight: 900;
+  font-size: 1.2em;
+  display: grid;
+  align-self: end;
+}
+div.inputs{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  margin: 0;
+  padding: 0;
+  place-content: center; width: 100%;
+}
+div.lay{
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  grid-row: 1fr;
+}
+div.lay p{
+  color: white;
+}
+:is(input#number1, input#number2){
+  border: 1px solid papayawhip;
+  height: 60px;
+  width: 80px;
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  font-weight: 1000;
+  background-color: #6943FF;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(239, 239, 199, 0.3),
+  inset 0px 0px 1px rgba(115, 115, 111, 0.7);
+  place-self: center;
+}
+button.act{
+  display: grid;
+  width: 117px;
+  height: 32px;
+  border: none;
+  place-content: center;
+  border-radius: 5px;
+  align-self: start;
+  transition: all 0.3s ease-in;
+  background-color: white;
+}
+button.act:hover{
+  transform: scale(0.95);
+}
+div.result{
+  display: grid;
+  background-color: #F4F4F4;
+  grid-auto-flow: row;
+  place-content: center;
+  padding: 40px 20px;
+  overflow: auto;
+
+}
+div.tank{
+  box-sizing: border-box;
+  overflow: auto;
+}
+:is(div.box1, div.box2, div.box3, div.box){
+  display: grid;
+  background-color: white;
+  width: 500px;
+  height: 108.57px;
+  place-items: center;
+  text-align: center;
+}
+span.mea{
+  color: #5A537B;
+  font-weight: 900;
+}
