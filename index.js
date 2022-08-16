@@ -1,21 +1,30 @@
 const input1 = document.getElementById("number1")
 const Rate = document.querySelector("input#number2")
 let lenghtConvert = document.querySelector(".box1 .output")
-let  conlength = ""
 let VolumeConvert = document.querySelector(".box2 .output")
 let MassConvert = document.querySelector(".box3 .output")
 let feedback = document.querySelector("div.tank")
+let boxConvert = document.querySelector("div.box span.output") 
 const convert = document.querySelector("button.act")
+let values = ["", ""];
 
 convert.addEventListener("click", function(){
-  length();
-  volume()
-  mass()
+  volume();
+  mass();
+  rlength();
+   console.log(boxConvert.textContent)
 })
-function length(){
+
+function box(){
+   con =  input1.value * Rate.value
+   conInv = input1.value * (1/Rate.value)
+    boxConvert.textContent = "djry" //`${input1.value} ${values[0]}(s) = ${con.toFixed(2)} ${values[1]}(s) | ${input1.value} ${values[1]}(s) = ${conInv.toFixed(2)} ${values[0]}(s)`
+ }
+
+function rlength(){
   con =  input1.value * 3.281
   conInv = input1.value * 0.305
-  lenghtConvert.textContent = `${input1.value} Meter(s) = ${con.toFixed(4)} feet | ${input1.value} feet = ${conInv.toFixed(4)} Meter(s)`
+  lenghtConvert.textContent = `${input1.value} Meter(s) = ${con.toFixed(4)} Feet | ${input1.value} Feet = ${conInv.toFixed(4)} Meter(s)`
 }
 function volume(){
   con =  input1.value * 0.264
@@ -37,12 +46,19 @@ function quest(){
     }else if(ans === null) {
       alert('Please specify a value')
     }else{
-      feedback.innerHTML += `<div class="box1">
-                                  <span class="mea">${ans}</span>
-                                 <span class="output"></span>
-                                            </div>`
-      alert('New rate added')
+      let ans2 = prompt("To?", "")
+      if(ans2 === ""){
+        alert("Please specify a value")
+      }else if(ans2 === null){
+        alert('Please specify a value')
+      }else{
+        feedback.innerHTML += `<div class="box">
+        <span class="mea">${ans} to ${ans2}</span>
+        <span class="output"></span>
+                  </div>`
+             alert('New rate added')
+             values.push(`${ans}`, `${ans2}`)
     }
   }
 }
-
+}
