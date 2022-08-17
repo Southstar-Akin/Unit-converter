@@ -50,6 +50,11 @@ span.head{
   height: 100%;
   width: 100%;
 }
+div.class{
+  display: grid;
+  grid-auto-flow: row;
+  margin-bottom: 40px;
+}
 div.convert button{
   display: grid;
   width: 200px;
@@ -174,4 +179,102 @@ div.tank{
 span.mea{
   color: #5A537B;
   font-weight: 900;
+}
+  button.buto{
+   display: grid;
+  width: 150px;
+  height: 40px;
+  place-self: center;
+  align-self:start ;
+  place-content: center;
+  border-radius: 28px;
+  position: relative;
+  top: 50px;
+  border: none;
+  padding: 0;
+  background-color: #6b4ef9;
+} 
+button a{
+  margin: 0;
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;
+  width: inherit;
+  height: inherit;
+  padding: 0;
+  display: grid;
+  place-content: center;
+  border-radius: 28px;
+  transition: all 0.3s ease-in;
+}
+div.buttons{
+  display: grid;
+  grid-auto-flow: column;
+
+}
+button a:hover{
+  color: #6943FF;
+  background-color:#dbdbdf
+}
+button.buton{
+  display: grid;
+ width: 150px;
+ height: 40px;
+ place-self: center;
+ align-self:start ;
+ place-content: center;
+ border-radius: 28px;
+ position: relative;
+ top: 50px;
+ border: none;
+ padding: 0;
+ background-color: #6b4ef9;
+ position: relative;
+} 
+.story{
+color: white;
+margin: 25px;
+font-size: 1.13em;
+overflow: auto;
+}
+div.story span.intro{
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  color: aquamarine;
+  text-decoration: underline;
+}
+b{
+  color: aquamarine;
+}
+button.buti{
+  display: grid;
+  width: 150px;
+  height: 40px;
+  place-self: end;
+  align-self:start ;
+  place-content: center;
+  border-radius: 28px;
+  position: relative;
+  top: 50px;
+  border: none;
+  padding: 0;
+  background-color: aquamarine;
+}
+button.buti a{
+  color: #1F2937;
+}
+p.las{
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  color: aquamarine;
+  text-decoration: underline;
+  margin: 20px 0px;
+}
+img.me{
+width: 200px;
+height: 200px;
+float: left;
+margin-right: 10px;
 }

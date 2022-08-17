@@ -4,21 +4,25 @@ let lenghtConvert = document.querySelector(".box1 .output")
 let VolumeConvert = document.querySelector(".box2 .output")
 let MassConvert = document.querySelector(".box3 .output")
 let feedback = document.querySelector("div.tank")
-let boxConvert = document.querySelector(".box .output") 
+let vert = document.querySelector(".box .output") 
 const convert = document.querySelector("button.act")
 let values = [];
 
-convert.addEventListener("click", function(){
+let Convert = function(){
   volume();
   mass();
   rlength();
-   console.log(boxConvert)
-})
+  if(  Rate.value != 0){
+    box()
+  }
+}
+
+convert.addEventListener("click", Convert)
 
 function box(){
    con =  input1.value * Rate.value
    conInv = input1.value * (1 / Rate.value)
-  boxConvert.textContent = "djry" //`${input1.value} ${values[0]}(s) = ${con.toFixed(2)} ${values[1]}(s) | ${input1.value} ${values[1]}(s) = ${conInv.toFixed(2)} ${values[0]}(s)`
+   document.querySelector(".box .output").textContent = `${input1.value} ${values[0]}(s) = ${con.toFixed(2)} ${values[1]}(s) | ${input1.value} ${values[1]}(s) = ${conInv.toFixed(2)} ${values[0]}(s)`
  }
 
 function rlength(){
