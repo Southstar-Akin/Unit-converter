@@ -1,20 +1,23 @@
 const input1 = document.getElementById("number1")
-const Rate = document.querySelector("input#number2")
+const newRate= document.querySelector("button#new-rate")
 let lenghtConvert = document.querySelector(".box1 .output")
 let VolumeConvert = document.querySelector(".box2 .output")
 let MassConvert = document.querySelector(".box3 .output")
-let feedback = document.querySelector("div.tank")
+let feedback = document.querySelector("div.tank2")
 let vert = document.querySelector(".box .output") 
-const convert = document.querySelector("button.act")
+const convert = document.querySelector("button#act")
 let values = [];
+let storedrates = []
+const savedRates = JSON.parse(localStorage.getItem("rates"))
+
+
+newRate.addEventListener("click", quest)
 
 let Convert = function(){
   volume();
   mass();
   rlength();
-  if(  Rate.value != 0){
-    box()
-  }
+  conver(storedrates)
 }
 
 convert.addEventListener("click", Convert)
@@ -41,28 +44,99 @@ function mass(){
   MassConvert.textContent = `${input1.value} Kilogram(s) = ${con.toFixed(4)} Pounds | ${input1.value} Pounds = ${conInv.toFixed(4)} Kilogram(s)`
 
 }
+
 function quest(){
+
   let test =  confirm("Would you like to create a new Rate?")
+
   if (test == true){
+
     let ans = prompt("What is the name of the rate","")
+
     if (ans === ""){
+
       alert('Please specify a value')
-    }else if(ans === null) {
+
+    } else if(ans === null) {
       alert('Please specify a value')
-    }else{
-      let ans2 = prompt("To?", "")
-      if(ans2 === ""){
-        alert("Please specify a value")
-      }else if(ans2 === null){
-        alert('Please specify a value')
-      }else{
-        feedback.innerHTML += `<div class="box">
-        <span class="mea">${ans} to ${ans2}</span>
-        <span class="output"></span>
-                  </div>`
-             alert('New rate added')
-             values.push(`${ans}`, `${ans2}`)
     }
+    else{
+
+      let ans2 = prompt("To?", "")
+
+      if (ans2 === "") {
+        alert("Please specify a value")
+         
+      } else if (ans2 === null) {
+
+        alert('Please specify a value')
+
+      }
+      else {
+        let ans3 = prompt(`How much is a ${ans} to a ${ans2}`, "")
+
+        if(ans3 === ""){
+
+          alert('Please specify a value')
+
+        } else if (ans3 === null)
+        {
+
+          alert('Please specify a value')
+
+        }
+        else{
+        storedrates.push({rate1: ans, rate2: ans2, rateValue:ans3})
+        localStorage.setItem("rates", JSON.stringify(storedrates))
+        alert('New rate added')
+        render(storedrates)
+        }
+      }
+   } 
   }
 }
+
+
+function render(rates){
+
+  let codeBlock = ""
+
+  for (let i = 0; i < rates.length; i++){
+    codeBlock += `
+    <div class="box">
+    <span class="mea">${rates[i].rate1} to ${rates[i].rate2}</span>
+    <span class="output"></span>
+    </div>
+    `
+  }
+  feedback.innerHTML = codeBlock;
+
 }
+
+
+if (savedRates){
+  storedrates = savedRates
+  render(storedrates)
+}
+
+
+
+function conver(rates){
+
+  let codeBlock = ""
+
+  for (let i = 0; i < rates.length; i++){
+    con =  input1.value * rates[i].rateValue
+    conInv = input1.value * (1 / rates[i].rateValue)
+    codeBlock += `
+    <div class="box">
+    <span class="mea">${rates[i].rate1} to ${rates[i].rate2}</span>
+    <span class="output">${input1.value} ${rates[i].rate1}(s) = ${con.toFixed(2)} ${rates[i].rate2}(s) | ${input1.value} ${rates[i].rate2}(s) = ${conInv.toFixed(2)} ${rates[i].rate1}(s)</span>
+    </div>
+    `
+  }
+
+  feedback.innerHTML = codeBlock;
+
+}
+

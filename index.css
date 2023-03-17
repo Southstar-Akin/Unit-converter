@@ -113,7 +113,7 @@ span.top{
 }
 div.inputs{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   margin: 0;
   padding: 0;
@@ -121,16 +121,21 @@ div.inputs{
 }
 div.lay{
   display: grid;
-  grid-template-columns: 4fr 6fr;
-  grid-row: 1fr;
+  grid-template-rows: 8fr 2fr;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+}
+div.lay:nth-child(2){
+display: none;
 }
 div.lay p{
   color: white;
+  text-align: center;
 }
 :is(input#number1, input#number2){
   border: 1px solid papayawhip;
   height: 60px;
-  width: 80px;
+  width: 80%;
   text-align: center;
   font-size: 2em;
   color: white;
@@ -141,6 +146,11 @@ div.lay p{
   inset 0px 0px 1px rgba(115, 115, 111, 0.7);
   place-self: center;
 }
+div.actions{
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 20px;
+}
 button.act{
   display: grid;
   width: 117px;
@@ -148,7 +158,7 @@ button.act{
   border: none;
   place-content: center;
   border-radius: 5px;
-  align-self: start;
+  align-self: center;
   transition: all 0.3s ease-in;
   background-color: white;
 }
@@ -165,6 +175,9 @@ div.result{
 
 }
 div.tank{
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto;
   box-sizing: border-box;
   overflow: auto;
 }
@@ -278,3 +291,39 @@ height: 200px;
 float: left;
 margin-right: 10px;
 }
+
+@media screen and (max-width: 760px){
+  div#in-layout{
+    height: 80vh;
+    width: 90vw;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  :is(div.box1, div.box2, div.box3, div.box){
+    display: grid;
+    background-color: white;
+    width: 80vw;
+    height: 108.57px;
+    place-items: center;
+    text-align: center;
+  }
+  div.buttons{
+    margin-bottom: 40px;
+  }  
+  div.story{
+    display: grid;
+  }
+  img.me{
+    float: none;
+    display: grid;
+    place-self: center;
+    border-bottom: 1px solid #f5c261 ;
+  }
+  p.up{
+    margin-top: 30px;
+  }
+  button.buti{
+    margin-bottom: 60px;
+  }
+    }
+  
