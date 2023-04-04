@@ -125,6 +125,9 @@ div.lay{
   grid-template-columns: 1fr;
   grid-auto-flow: row;
 }
+div.lay input::placeholder{
+  color: rgba(254, 251, 251, 0.8);
+}
 div.lay:nth-child(2){
 display: none;
 }
